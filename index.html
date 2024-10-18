@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificar Velocidade</title>
+</head>
+<body>
+  <button onclick="verificarVelocidade()">Verificar Velocidade</button>
+
+  <script>
+    // Cole o código JavaScript aqui dentro
+    function verificarVelocidade() {
+      const tipoVia = prompt(
+        "Escolha o tipo de via:\n1 - Rodovia (120 km/h)\n2 - Avenida (80 km/h)\n3 - Rua (50 km/h)"
+      );
+
+      let limite;
+      let nomeVia;
+
+      switch (tipoVia) {
+        case '1':
+          limite = 120;
+          nomeVia = "Rodovia";
+          break;
+        case '2':
+          limite = 80;
+          nomeVia = "Avenida";
+          break;
+        case '3':
+          limite = 50;
+          nomeVia = "Rua";
+          break;
+        default:
+          alert("Opção inválida! Por favor, escolha entre 1, 2 ou 3.");
+          return;
+      }
+
+      const velocidade = parseFloat(prompt("Digite a velocidade do veículo (em km/h):"));
+
+      if (isNaN(velocidade)) {
+        alert("Por favor, insira um número válido para a velocidade.");
+        return;
+      }
+
+      if (velocidade > limite) {
+        alert(`Você está acima do limite de velocidade na ${nomeVia}! Limite: ${limite} km/h.`);
+      } else {
+        alert(`Velocidade dentro do limite na ${nomeVia}. Limite: ${limite} km/h.`);
+      }
+    }
+  </script>
+</body>
+</html>
